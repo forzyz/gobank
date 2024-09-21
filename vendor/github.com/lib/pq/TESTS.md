@@ -23,11 +23,11 @@ A benchmark suite can be run as part of the tests:
 Run a postgres container:
 
 ```
-docker run --expose 5432:5432 postgres
+docker run --expose 3000:3000 postgres
 ```
 
 Run tests:
 
 ```
-PGHOST=localhost PGPORT=5432 PGUSER=postgres PGSSLMODE=disable PGDATABASE=postgres go test
+PGHOST=localhost PGPORT=3000 PGUSER=postgres PGSSLMODE=disable PGDATABASE=postgres go test
 ```
