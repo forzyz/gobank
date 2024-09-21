@@ -41,7 +41,6 @@ func (s *APIServer) Run() {
 	}
 }
 
-// 541421
 func (s *APIServer) handleLogin(w http.ResponseWriter, r *http.Request) error {
 	if r.Method != http.MethodPost {
 		return fmt.Errorf("method not allowed %s", r.Method)
@@ -177,8 +176,6 @@ func createJWT(account *Account) (string, error) {
 func permissionDenied(w http.ResponseWriter) {
 	WriteJSON(w, http.StatusForbidden, ApiError{Error: "permission denied"})
 }
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50TnVtYmVyIjoxNzI4OTEsImV4cGlyZXNBdCI6MTUxNjIzOTAyMn0.-8iqn3KGNer5tAV8-dqPCLf8yaTu_rlmxHX8sN4IAV0
 
 func withJWTAuth(handlerFunc http.HandlerFunc, s Storage) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
